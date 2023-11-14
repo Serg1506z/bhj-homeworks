@@ -4,16 +4,28 @@ class Game {
     this.wordElement = container.querySelector('.word');
     this.winsElement = container.querySelector('.status__wins');
     this.lossElement = container.querySelector('.status__loss');
+    this.timerElement = container.querySelector(".status_timer");
 
     this.reset();
 
     this.registerEvents();
+    this.registerTimer();
   }
 
   reset() {
     this.setNewWord();
     this.winsElement.textContent = 0;
     this.lossElement.textContent = 0;
+  }
+
+  registerTimer(){
+    this.timer = setInterval(() =>{
+      this.time--;
+      if(this.time === 0){
+        this.fail()
+      }
+      this.timerElement.textContent = this.time;
+    },1000)
   }
 
   registerEvents() {
@@ -62,7 +74,8 @@ class Game {
 
   setNewWord() {
     const word = this.getWord();
-
+    this.timerElement.textContent = word.length;
+    this.time = word.length;
     this.renderWord(word);
   }
 
