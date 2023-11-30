@@ -27,7 +27,7 @@ products.forEach(product => {
         let id = Number(product.dataset.id)
         let img = image.src;
         addToCart({id,count,img})
-        renderCart(item)
+        // renderCart(item)
     })
 })
 
@@ -46,24 +46,24 @@ function addToCart (product){
 
 
 
-function renderCart (item){
-    basket.forEach(item => {
-        e.preventDefault();
-        let count = item.count.value;
-        let id = item.id.value;
-        let img = item.img.value;
+// function renderCart (item){
+//     basket.forEach(item => {
+//         e.preventDefault();
+//         let count = item.count.value;
+//         let id = item.id.value;
+//         let img = item.img.value;
 
 
-        let element = document.createElement("div");
-        element.className = "cart__products";
+//         let element = document.createElement("div");
+//         element.className = "cart__products";
 
-        element.innerHTML = 
-       `<div class="cart__product" data-id="${id}">
-            <img class="cart__product-image" src="${img}">
-            <div class="cart__product-count">${count}</div>
-        </div>`;
-    })
+//         element.innerHTML = 
+//        `<div class="cart__product" data-id="${id}">
+//             <img class="cart__product-image" src="${img}">
+//             <div class="cart__product-count">${count}</div>
+//         </div>`;
+//     })
     
-}
+// }
 
 }
