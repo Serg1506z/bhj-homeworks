@@ -32,13 +32,12 @@ products.forEach(product => {
 })
 
 function addToCart (product){
-    for(let i = 0; i < basket.length; i++){
-        if(basket[i].id === product.id){
-            basket[i].count += product.count;
-            return;
-        }
+    const productInCard = basket.find(item => item.id === product.id);
+    if(productInCard) {
+        productInCard.count += product.count
+    } else {
+        basket.push(product); 
     }
-    basket.push(product);
 }
 
 function renderCart (){
